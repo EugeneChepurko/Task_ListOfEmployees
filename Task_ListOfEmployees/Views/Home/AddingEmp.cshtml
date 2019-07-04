@@ -1,0 +1,83 @@
+﻿@model Task_ListOfEmployees.Models.Employee
+
+@{
+    ViewBag.Title = "AddingEmp";
+}
+
+<h2>AddingEmp</h2>
+
+
+@using (Html.BeginForm("AddingEmp", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div>
+    <hr />
+    @Html.ValidationSummary(false)
+    <div>
+        Name
+        <div>
+            @Html.EditorFor(model => model.Name)
+        </div>
+    </div>
+
+    <div>
+        Surname
+        <div>
+            @Html.EditorFor(model => model.Surname)
+        </div>
+    </div>
+
+    <div>
+        Age
+        <div>
+            @Html.EditorFor(model => model.Age)
+        </div>
+    </div>
+
+    @*<div>
+        Gender
+        <div>
+            @Html.RadioButton("Gender", "Male")
+            <span>Male</span> <br />
+            @Html.RadioButton("Gender", "Female")
+            <span>Female</span> <br />
+        </div>
+    </div>*@
+
+    <div>
+        Departament
+        <div>
+            @if (ViewBag.Depts != null)
+            {
+                @*@Html.DropDownList("Id", ViewBag.Depts as SelectList)*@
+                @Html.DropDownListFor(model => model.Id_department, ViewBag.Depts as SelectList)
+                @*@Html.DropDownListFor(Model => Model.Id_Department, ViewBag.Depts as SelectList, "Id")*@
+            }
+        </div>
+    </div>
+
+    <div>
+        Language
+        <div>
+            @if (ViewBag.Langs != null)
+            {
+                @Html.DropDownList("Name", ViewBag.Langs as SelectList)
+            }
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <input type="submit" value="AddingEmp" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to main", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

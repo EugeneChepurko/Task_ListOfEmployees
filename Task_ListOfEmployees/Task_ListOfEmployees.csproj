@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -124,6 +130,68 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907021347089_InitialCreate.cs" />
+    <Compile Include="Migrations\201907021347089_InitialCreate.Designer.cs">
+      <DependentUpon>201907021347089_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907021421448_migrat1.cs" />
+    <Compile Include="Migrations\201907021421448_migrat1.Designer.cs">
+      <DependentUpon>201907021421448_migrat1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907032157575_migrat2.cs" />
+    <Compile Include="Migrations\201907032157575_migrat2.Designer.cs">
+      <DependentUpon>201907032157575_migrat2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041055589_migrat3.cs" />
+    <Compile Include="Migrations\201907041055589_migrat3.Designer.cs">
+      <DependentUpon>201907041055589_migrat3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041138598_migrat4.cs" />
+    <Compile Include="Migrations\201907041138598_migrat4.Designer.cs">
+      <DependentUpon>201907041138598_migrat4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041153044_migrat5.cs" />
+    <Compile Include="Migrations\201907041153044_migrat5.Designer.cs">
+      <DependentUpon>201907041153044_migrat5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041201539_migrat6.cs" />
+    <Compile Include="Migrations\201907041201539_migrat6.Designer.cs">
+      <DependentUpon>201907041201539_migrat6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041216334_migrat61.cs" />
+    <Compile Include="Migrations\201907041216334_migrat61.Designer.cs">
+      <DependentUpon>201907041216334_migrat61.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041239526_migrat62.cs" />
+    <Compile Include="Migrations\201907041239526_migrat62.Designer.cs">
+      <DependentUpon>201907041239526_migrat62.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041521116_migrat63.cs" />
+    <Compile Include="Migrations\201907041521116_migrat63.Designer.cs">
+      <DependentUpon>201907041521116_migrat63.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041855592_migrat7.cs" />
+    <Compile Include="Migrations\201907041855592_migrat7.Designer.cs">
+      <DependentUpon>201907041855592_migrat7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041857554_migrat71.cs" />
+    <Compile Include="Migrations\201907041857554_migrat71.Designer.cs">
+      <DependentUpon>201907041857554_migrat71.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041932137_migrat72.cs" />
+    <Compile Include="Migrations\201907041932137_migrat72.Designer.cs">
+      <DependentUpon>201907041932137_migrat72.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041949355_migrat73.cs" />
+    <Compile Include="Migrations\201907041949355_migrat73.Designer.cs">
+      <DependentUpon>201907041949355_migrat73.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AddingEmp.cs" />
+    <Compile Include="Models\Departament.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\ListEmpContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,10 +230,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\AddingEmp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -179,6 +247,50 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907021347089_InitialCreate.resx">
+      <DependentUpon>201907021347089_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907021421448_migrat1.resx">
+      <DependentUpon>201907021421448_migrat1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907032157575_migrat2.resx">
+      <DependentUpon>201907032157575_migrat2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041055589_migrat3.resx">
+      <DependentUpon>201907041055589_migrat3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041138598_migrat4.resx">
+      <DependentUpon>201907041138598_migrat4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041153044_migrat5.resx">
+      <DependentUpon>201907041153044_migrat5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041201539_migrat6.resx">
+      <DependentUpon>201907041201539_migrat6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041216334_migrat61.resx">
+      <DependentUpon>201907041216334_migrat61.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041239526_migrat62.resx">
+      <DependentUpon>201907041239526_migrat62.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041521116_migrat63.resx">
+      <DependentUpon>201907041521116_migrat63.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041855592_migrat7.resx">
+      <DependentUpon>201907041855592_migrat7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041857554_migrat71.resx">
+      <DependentUpon>201907041857554_migrat71.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041932137_migrat72.resx">
+      <DependentUpon>201907041932137_migrat72.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041949355_migrat73.resx">
+      <DependentUpon>201907041949355_migrat73.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
