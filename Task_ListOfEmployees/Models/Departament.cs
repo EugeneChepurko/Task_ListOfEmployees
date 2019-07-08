@@ -10,8 +10,8 @@ namespace Task_ListOfEmployees.Models
     {
         [Key]
         public int Id { get; set; }
-        public virtual string Name { get; set; }
+        public string Depart_Name { get; set; }
         public int Frool { get; set; }
-        public IEnumerable<Employee> Employees { get; set; }
+        //public IEnumerable<Employee> Employees { get; set; }
     }
 }

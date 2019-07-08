@@ -6,6 +6,14 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
+hr {
+    border: 0;
+    clear: both;
+    display: block;
+    width: 100%;
+    background-color: #4f4f4f;
+    height: 1px;
+}
     
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -50,4 +58,33 @@ td, th {
 
 input {
     width: 150px;
+    border-radius: 3px;
 }
+select {
+    width: 150px;
+    border-radius: 3px;
+}
+.button {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #666;
+    background-color: #c1c1c1;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 3px #999;
+}
+
+    .button:hover {
+        background-color: #b5b3b3
+    }
+
+    .button:active {
+        background-color: #4f4f4f;
+        box-shadow: 0 3px #666;
+        transform: translateY(2px);
+    }

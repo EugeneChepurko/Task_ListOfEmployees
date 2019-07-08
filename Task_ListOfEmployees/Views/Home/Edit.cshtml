@@ -1,0 +1,51 @@
+﻿@model Task_ListOfEmployees.Models.Employee
+
+@{
+    ViewBag.Title = "Edit employee";
+}
+
+<h2>Edit employee</h2>
+
+
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <p>
+            @Html.LabelFor(m => m.Name, "Name") <br />
+            @Html.EditorFor(m => m.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Surname, "Surname") <br />
+            @Html.EditorFor(m => m.Surname)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Age, "Age") <br />
+            @Html.EditorFor(m => m.Age)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.departament, "Departament") <br />
+            @if (ViewBag.Depts != null)
+            {
+                @Html.DropDownList("Depart_Name", ViewBag.Depts as SelectList)
+            }
+        </p>
+        <p>
+            @Html.LabelFor(m => m.departament, "Language") <br />
+            @if (ViewBag.Langs != null)
+            {
+                @Html.DropDownList("LangName", ViewBag.Langs as SelectList)
+            }
+        </p>
+        <p><input class="button" type="submit" value="Save" /></p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

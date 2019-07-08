@@ -15,11 +15,14 @@ namespace Task_ListOfEmployees.Models
         public int Age { get; set; }
         public int? Id_department { get; set; }
         public virtual int? Id_Lang { get; set; }
-        public virtual string departament { get; set; }
+        public string departament { get; set; }
+        public string language { get; set; }
+        //public List<Departament> Departaments1 { get; set; }
+        //public ICollection<Language> Languages { get; set; }
         //public virtual Departament departamentName { get; set; }
         //public Employee()
         //{
-        //    departamentName = new Departament();
+        //    Departament = new Departament();
         //}
 
         //public byte Gender { get; set; }
