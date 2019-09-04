@@ -21,7 +21,7 @@
         @Html.ValidationSummary(false)
         <p>
             @Html.LabelFor(m => m.Name, "Name") <br />
-            <input type="text" name="Name" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Home")' />
+            <input id="transform" type="text" name="Name" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Home")' />
             @*@Html.EditorFor(model => model.Name, @Url.Action("AutocompleteSearch", "Home"))*@
         </p>
 
@@ -46,20 +46,19 @@
             </div>*@
 
         <p>
-            @Html.LabelFor(m => m.departament, "Departament") <br />
+            @Html.LabelFor(m => m.Departament.Depart_Name, "Departament") <br />
             @if (ViewBag.Depts != null)
             {
-                @*@Html.DropDownList("Id", ViewBag.Depts as SelectList)*@
-                @Html.DropDownList("Depart_Name",@*model => model.Id_department,*@ ViewBag.Depts as SelectList)
-                @*@Html.DropDownListFor(Model => Model.Id_Department, ViewBag.Depts as SelectList, "Id")*@
+                @Html.DropDownListFor(dep => dep.DepartamentId, ViewBag.Depts as SelectList)
+                @*@Html.DropDownList("Depart_Name", ViewBag.Depts as SelectList)*@
             }
         </p>
 
         <p>
-            @Html.LabelFor(m => m.departament, "Language") <br />
+            @Html.LabelFor(m => m.Language.LangName, "Language") <br />
             @if (ViewBag.Langs != null)
             {
-                @Html.DropDownList("LangName", ViewBag.Langs as SelectList)
+                @Html.DropDownListFor(lang => lang.LanguageId, ViewBag.Langs as SelectList)
             }
         </p>
         <p><input class="button" type="submit" value="Add" /></p>

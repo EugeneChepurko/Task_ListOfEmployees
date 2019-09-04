@@ -234,12 +234,33 @@
     <Compile Include="Migrations\201907080947025_migrat93.Designer.cs">
       <DependentUpon>201907080947025_migrat93.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909021518535_migrat94.cs" />
+    <Compile Include="Migrations\201909021518535_migrat94.Designer.cs">
+      <DependentUpon>201909021518535_migrat94.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909021542288_migrat95.cs" />
+    <Compile Include="Migrations\201909021542288_migrat95.Designer.cs">
+      <DependentUpon>201909021542288_migrat95.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909021559239_migrat96.cs" />
+    <Compile Include="Migrations\201909021559239_migrat96.Designer.cs">
+      <DependentUpon>201909021559239_migrat96.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909040826160_migrat.cs" />
+    <Compile Include="Migrations\201909040826160_migrat.Designer.cs">
+      <DependentUpon>201909040826160_migrat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909041053242_migrat10.cs" />
+    <Compile Include="Migrations\201909041053242_migrat10.Designer.cs">
+      <DependentUpon>201909041053242_migrat10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AddingEmp.cs" />
     <Compile Include="Models\Departament.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\ListEmpContext.cs" />
+    <Compile Include="Models\OverallTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -419,6 +440,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907080947025_migrat93.resx">
       <DependentUpon>201907080947025_migrat93.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909021518535_migrat94.resx">
+      <DependentUpon>201909021518535_migrat94.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909021542288_migrat95.resx">
+      <DependentUpon>201909021542288_migrat95.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909021559239_migrat96.resx">
+      <DependentUpon>201909021559239_migrat96.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909040826160_migrat.resx">
+      <DependentUpon>201909040826160_migrat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909041053242_migrat10.resx">
+      <DependentUpon>201909041053242_migrat10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

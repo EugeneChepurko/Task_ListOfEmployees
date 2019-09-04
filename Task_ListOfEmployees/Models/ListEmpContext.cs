@@ -10,6 +10,7 @@ namespace Task_ListOfEmployees.Models
     {
         public DbSet<Employee> Employees { get; set; }    
         public DbSet<Departament> Departaments { get; set; }    
-        public DbSet<Language> Languages { get; set; }    
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<OverallTable> OverallTables { get; set; }
     }
 }

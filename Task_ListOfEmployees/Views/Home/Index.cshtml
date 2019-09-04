@@ -16,20 +16,20 @@
             <th><p>Modifying</p></th>
         </tr>
         @foreach (var emp in Model@*ViewBag.Employees*@)
-{
-<tr>
-    <td><p>@emp.Name</p></td>
-    <td><p>@emp.Surname</p></td>
-    <td><p>@emp.Age</p></td>
-    <td><p>@emp.departament</p></td>
-    <td><p>@emp.language</p></td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = emp.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = emp.Id })
-    </td>
-    @*<td><p><a href="/Home/ViewMyMessages/@emp.Id">Edit</a></p></td>
-        <td><p><a href="/Home/ViewAllMessages/@emp.Id">Delete</a></p></td>*@
-</tr>
-}
+        {
+            <tr>
+                <td><p>@emp.Name</p></td>
+                <td><p>@emp.Surname</p></td>
+                <td><p>@emp.Age</p></td>
+                <td><p>@Html.DisplayFor(modelItem => emp.Departament.Depart_Name)</p></td>
+                <td><p>@Html.DisplayFor(modelItem => emp.Language.LangName)</p></td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = emp.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = emp.Id })
+                </td>
+                @*<td><p><a href="/Home/ViewMyMessages/@emp.Id">Edit</a></p></td>
+                    <td><p><a href="/Home/ViewAllMessages/@emp.Id">Delete</a></p></td>*@
+            </tr>
+        }
     </table>
 </div>

@@ -15,9 +15,11 @@ namespace Task_ListOfEmployees.Controllers
         ListEmpContext db = new ListEmpContext();
         public ActionResult Index()
         {         
-            ViewBag.Employees = db.Employees;
-            var employees = db.Employees;
-            return View(employees.ToList());
+            //ViewBag.Employees = db.Employees;
+            //var employees = db.Employees;
+
+            var emps = db.Employees.Include(d => d.Departament).Include(l => l.Language);
+            return View(emps.ToList());
         }
 
         public ActionResult AutocompleteSearch(string term)
@@ -28,12 +30,13 @@ namespace Task_ListOfEmployees.Controllers
 
             return Json(models, JsonRequestBehavior.AllowGet);
         }
+
         [HttpGet]
         public ActionResult Add()
         {
-            SelectList depts = new SelectList(db.Departaments, "Depart_Name", "Depart_Name");
+            SelectList depts = new SelectList(db.Departaments, "Id", "Depart_Name");
             ViewBag.Depts = depts;
-            SelectList langs = new SelectList(db.Languages, "LangName", "LangName");
+            SelectList langs = new SelectList(db.Languages, "Id", "LangName");
             ViewBag.Langs = langs;
             return View();
         }
@@ -41,22 +44,35 @@ namespace Task_ListOfEmployees.Controllers
         [HttpPost]
         public async Task<ActionResult> Add(Employee addingEmp, FormCollection form)
         {
-            //SelectList depts = new SelectList(db.Departaments, "Name", "Name");
-            addingEmp.departament = form["Depart_Name"].ToString();
-            addingEmp.Id_department = db.Departaments.Where(x => x.Depart_Name == addingEmp.departament).SingleOrDefault()?.Id;
-
-            addingEmp.language = form["LangName"].ToString();
-            addingEmp.Id_Lang = db.Languages.Where(x => x.LangName == addingEmp.language).SingleOrDefault()?.Id;
-
             db.Employees.Add(addingEmp);
             await db.SaveChangesAsync();
+
+            OverallTable table = new OverallTable();
+            table.EmployeeId = addingEmp.Id;
+            table.DepartamentId = addingEmp.DepartamentId;
+            table.LanguageId = addingEmp.LanguageId;
+            db.OverallTables.Add(table);
+            await db.SaveChangesAsync();
+
+            //addingEmp.Departament.Depart_Name = form["Depart_Name"].ToString();
+            //addingEmp.Language.LangName = form["LangName"].ToString();
+
+            //db.Employees.Add(addingEmp);
+            //await db.SaveChangesAsync();
+
+            //table.DepartamentId = db.Departaments.Where(x => x.Depart_Name == addingEmp.Departament.Depart_Name).FirstOrDefault()?.Id;
+            //table.LanguageId = db.Languages.Where(x => x.LangName == addingEmp.Language.LangName).FirstOrDefault()?.Id;
+
+            //table.EmployeeId = addingEmp.Id;
+            //db.OverallTables.Add(table);
+            //await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
         public async Task<ActionResult> Edit(int? id)
         {
-            SelectList depts = new SelectList(db.Departaments, "Depart_Name", "Depart_Name");
+            SelectList depts = new SelectList(db.Departaments, "Id", "Depart_Name");
             ViewBag.Depts = depts;
-            SelectList langs = new SelectList(db.Languages, "LangName", "LangName");
+            SelectList langs = new SelectList(db.Languages, "Id", "LangName");
             ViewBag.Langs = langs;
 
             if (id == null)
@@ -69,13 +85,14 @@ namespace Task_ListOfEmployees.Controllers
         [HttpPost]
         public async Task<ActionResult> Edit(Employee employee, FormCollection form)
         {
-            employee.departament = form["Depart_Name"].ToString();
-            employee.Id_department = db.Departaments.Where(x => x.Depart_Name == employee.departament).SingleOrDefault()?.Id;
-
-            employee.language = form["LangName"].ToString();
-            employee.Id_Lang = db.Languages.Where(x => x.LangName == employee.language).SingleOrDefault()?.Id;
-
             db.Entry(employee).State = EntityState.Modified;
+            await db.SaveChangesAsync();
+
+            OverallTable table = db.OverallTables.Where(i => i.EmployeeId == employee.Id).SingleOrDefault();
+            table.EmployeeId = employee.Id;
+            table.DepartamentId = employee.DepartamentId;
+            table.LanguageId = employee.LanguageId;
+            db.Entry(table).State = EntityState.Modified;
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Task_ListOfEmployees.Models
 {
@@ -12,6 +8,5 @@ namespace Task_ListOfEmployees.Models
         public int Id { get; set; }
         public string Depart_Name { get; set; }
         public int Frool { get; set; }
-        //public IEnumerable<Employee> Employees { get; set; }
     }
 }

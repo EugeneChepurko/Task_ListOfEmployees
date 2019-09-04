@@ -14,7 +14,21 @@ hr {
     background-color: #4f4f4f;
     height: 1px;
 }
-    
+input {
+    transition: 2.0s all;
+}
+
+input:hover {
+    background-color: #8df4fb;
+}
+
+#transform {
+    transition: 2.0s all;
+}
+    #transform:hover {
+        background-color: #8df4fb;
+    }
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -80,7 +94,8 @@ select {
 }
 
     .button:hover {
-        background-color: #b5b3b3
+        /*background-color: #b5b3b3;*/
+        background-color: #9a9a9a;
     }
 
     .button:active {

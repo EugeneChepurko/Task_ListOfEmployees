@@ -25,17 +25,19 @@
             @Html.EditorFor(m => m.Age)
         </p>
         <p>
-            @Html.LabelFor(m => m.departament, "Departament") <br />
+            @Html.LabelFor(m => m.Departament.Depart_Name, "Departament") <br />
             @if (ViewBag.Depts != null)
             {
-                @Html.DropDownList("Depart_Name", ViewBag.Depts as SelectList)
+                @*@Html.DropDownList("Depart_Name", ViewBag.Depts as SelectList)*@
+                @Html.DropDownListFor(dep => dep.DepartamentId, ViewBag.Depts as SelectList)
             }
         </p>
         <p>
-            @Html.LabelFor(m => m.departament, "Language") <br />
+            @Html.LabelFor(m => m.Language.LangName, "Language") <br />
             @if (ViewBag.Langs != null)
             {
-                @Html.DropDownList("LangName", ViewBag.Langs as SelectList)
+                @*@Html.DropDownList("LangName", ViewBag.Langs as SelectList)*@
+                @Html.DropDownListFor(lang => lang.LanguageId, ViewBag.Langs as SelectList)
             }
         </p>
         <p><input class="button" type="submit" value="Save" /></p>
