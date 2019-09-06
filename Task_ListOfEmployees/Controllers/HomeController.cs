@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
 using Task_ListOfEmployees.Models;
 
 namespace Task_ListOfEmployees.Controllers
@@ -15,10 +11,7 @@ namespace Task_ListOfEmployees.Controllers
         ListEmpContext db = new ListEmpContext();
         public ActionResult Index()
         {         
-            //ViewBag.Employees = db.Employees;
-            //var employees = db.Employees;
-
-            var emps = db.Employees.Include(d => d.Departament).Include(l => l.Language);
+            IQueryable<Employee> emps = db.Employees.Include(d => d.Departament).Include(l => l.Language);
             return View(emps.ToList());
         }
 
@@ -42,7 +35,7 @@ namespace Task_ListOfEmployees.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Add(Employee addingEmp, FormCollection form)
+        public async Task<ActionResult> Add(Employee addingEmp)
         {
             db.Employees.Add(addingEmp);
             await db.SaveChangesAsync();
@@ -53,21 +46,9 @@ namespace Task_ListOfEmployees.Controllers
             table.LanguageId = addingEmp.LanguageId;
             db.OverallTables.Add(table);
             await db.SaveChangesAsync();
-
-            //addingEmp.Departament.Depart_Name = form["Depart_Name"].ToString();
-            //addingEmp.Language.LangName = form["LangName"].ToString();
-
-            //db.Employees.Add(addingEmp);
-            //await db.SaveChangesAsync();
-
-            //table.DepartamentId = db.Departaments.Where(x => x.Depart_Name == addingEmp.Departament.Depart_Name).FirstOrDefault()?.Id;
-            //table.LanguageId = db.Languages.Where(x => x.LangName == addingEmp.Language.LangName).FirstOrDefault()?.Id;
-
-            //table.EmployeeId = addingEmp.Id;
-            //db.OverallTables.Add(table);
-            //await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
         public async Task<ActionResult> Edit(int? id)
         {
             SelectList depts = new SelectList(db.Departaments, "Id", "Depart_Name");
@@ -82,8 +63,9 @@ namespace Task_ListOfEmployees.Controllers
                 return HttpNotFound();
             return View(employee);
         }
+
         [HttpPost]
-        public async Task<ActionResult> Edit(Employee employee, FormCollection form)
+        public async Task<ActionResult> Edit(Employee employee)
         {
             db.Entry(employee).State = EntityState.Modified;
             await db.SaveChangesAsync();

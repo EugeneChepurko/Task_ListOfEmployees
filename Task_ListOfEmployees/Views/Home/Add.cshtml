@@ -22,7 +22,6 @@
         <p>
             @Html.LabelFor(m => m.Name, "Name") <br />
             <input id="transform" type="text" name="Name" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Home")' />
-            @*@Html.EditorFor(model => model.Name, @Url.Action("AutocompleteSearch", "Home"))*@
         </p>
 
         <p>
@@ -50,7 +49,6 @@
             @if (ViewBag.Depts != null)
             {
                 @Html.DropDownListFor(dep => dep.DepartamentId, ViewBag.Depts as SelectList)
-                @*@Html.DropDownList("Depart_Name", ViewBag.Depts as SelectList)*@
             }
         </p>
 

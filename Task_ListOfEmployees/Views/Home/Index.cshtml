@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Task_ListOfEmployees.Models.Employee>
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Main";
 }
 
 <strong>List of Employees</strong>
@@ -15,7 +15,7 @@
             <th><p>Language</p></th>
             <th><p>Modifying</p></th>
         </tr>
-        @foreach (var emp in Model@*ViewBag.Employees*@)
+        @foreach (var emp in Model)
         {
             <tr>
                 <td><p>@emp.Name</p></td>
@@ -27,8 +27,6 @@
                     @Html.ActionLink("Edit", "Edit", new { id = emp.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = emp.Id })
                 </td>
-                @*<td><p><a href="/Home/ViewMyMessages/@emp.Id">Edit</a></p></td>
-                    <td><p><a href="/Home/ViewAllMessages/@emp.Id">Delete</a></p></td>*@
             </tr>
         }
     </table>

@@ -255,7 +255,6 @@
       <DependentUpon>201909041053242_migrat10.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AddingEmp.cs" />
     <Compile Include="Models\Departament.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Language.cs" />
@@ -348,6 +347,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="pict\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
